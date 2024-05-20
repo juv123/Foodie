@@ -1,7 +1,6 @@
 
 import RestoCard, { Promoted } from "./RestoCard";
 import { Link } from "react-router-dom";
-//import {data as swiggyRestaurantList} from '../config/data.js';
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../config/useOnlineStatus";
