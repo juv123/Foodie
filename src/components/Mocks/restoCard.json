@@ -1,0 +1,102 @@
+ {
+    "info": {
+        "id": "506324",
+        "name": "Louis Burger",
+        "cloudinaryImageId": "19d3d352cc815b9d88b22617b41fa97b",
+        "locality": "6Th Block, Koramangala",
+        "areaName": "Koramangala",
+        "costForTwo": "₹600 for two",
+        "cuisines": [
+            "Burgers",
+            "American",
+            "Fast Food"
+        ],
+        "avgRating": 4.4,
+        "parentId": "22485",
+        "avgRatingString": "4.4",
+        "totalRatingsString": "1K+",
+        "promoted": true,
+        "adTrackingId": "cid=10732581~p=1~eid=0000018d-3256-48d8-53ab-6b2700140159~srvts=1705946532056~69584",
+        "sla": {
+            "deliveryTime": 39,
+            "lastMileTravel": 1.4,
+            "serviceability": "SERVICEABLE",
+            "slaString": "39 mins",
+            "lastMileTravelString": "1.4 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-01-23 04:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "newg.png",
+                    "description": "Gourmet"
+                }
+            ]
+        },
+        "isOpen": true,
+        "aggregatedDiscountInfoV2": {
+            "header": "₹120 OFF",
+            "shortDescriptionList": [
+                {
+                    "meta": "Use PTMJACKPOT",
+                    "discountType": "Flat",
+                    "operationType": "RESTAURANT"
+                }
+            ],
+            "descriptionList": [
+                {
+                    "meta": "INR 120 on MOV of INR 199  | Use code PTMJACKPOT",
+                    "discountType": "Flat",
+                    "operationType": "RESTAURANT"
+                }
+            ]
+        },
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Gourmet",
+                                "imageId": "newg.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {
+        "context": "seo-data-c29f47bf-6e03-4389-8909-ac97a1f9f182"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/louis-burger-6th-block-koramangala-bangalore-506324",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_byName"
+}
