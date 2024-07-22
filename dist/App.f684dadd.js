@@ -38801,6 +38801,7 @@ const Header = () => {
     className: "logoContainer"
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: "w-20 h-10",
+    alt: "logo",
     src: _constants.LOGO_URL
   }), /*#__PURE__*/_react.default.createElement("h3", {
     className: "foodie"
@@ -38882,16 +38883,17 @@ const RestoCard = props => {
   //console.log(resData?.info);
   return /*#__PURE__*/React.createElement("div", {
     "data-testid": "searchCard",
-    className: "p-5 border-2 m-5 w-72 overflow-hidden h-screen rounded-lg hover:bg-green-300"
+    className: "p-5 border-2 m-5 w-72 h-screen rounded-lg hover:bg-red-500 shadow-lg"
   }, /*#__PURE__*/React.createElement("img", {
-    className: "w-40 rounded-lg",
-    src: _constants.CDN_URL + restaurantImage
+    className: "w-40 rounded-lg hover-zoom object-cover",
+    src: _constants.CDN_URL + restaurantImage,
+    alt: restaurantName
   }), /*#__PURE__*/React.createElement("h3", {
-    className: "font-bold"
+    className: "font-bold break-words overflow-hidden"
   }, restaurantName), /*#__PURE__*/React.createElement("h4", {
     className: "text-left"
   }, areaName, " ", locality), /*#__PURE__*/React.createElement("h4", {
-    className: "italic"
+    className: "italic break-words overflow-hidden"
   }, cuisine.join(",")), /*#__PURE__*/React.createElement("h4", null, "Rs.", costForTwo), /*#__PURE__*/React.createElement("h4", {
     className: "font-bold"
   }, starRating, " stars"), /*#__PURE__*/React.createElement("h4", null, deliveryTime, " minutes"));
@@ -39041,9 +39043,7 @@ const Body = () => {
   }
 
   //console.log(listofRestaurants);
-  return /*#__PURE__*/React.createElement("div", {
-    className: "body"
-  }, /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "p-5 w-[80%] flex"
   }, /*#__PURE__*/React.createElement("label", {
     className: "p-4"
@@ -39075,7 +39075,7 @@ const Body = () => {
       setFilteredList(filteredList);
     }
   }, "Top Rated Restaurants")), /*#__PURE__*/React.createElement("div", {
-    className: "flex flex-wrap bg-zinc-100 my-auto mx-9 py-2"
+    className: "flex flex-wrap bg-zinc-100 my-auto mx-9 py-2 justify-center items-center"
   }, /*#__PURE__*/React.createElement(_userContexts.default.Provider, {
     value: user
   }, onlineStatus ? filteredListofRestuarants?.map(restaurant => /*#__PURE__*/React.createElement(_reactRouterDom.Link, {
@@ -39154,12 +39154,14 @@ class About extends _react.Component {
   render() {
     console.log('parent render');
     return /*#__PURE__*/_react.default.createElement("div", {
-      className: "bg-white dark:bg-gray-800"
+      className: "bg-white dark:bg-gray-800 mt-20 ml-10 mr-8 mb-40"
     }, /*#__PURE__*/_react.default.createElement("h1", {
-      className: "dark:text-white underline font-bold"
+      className: "text-4xl dark:text-white underline font-bold p-7"
     }, "About us"), /*#__PURE__*/_react.default.createElement(_userContexts.default.Consumer, null, ({
       user
-    }) => /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("i", null, "Food App Using Swiggy API"))));
+    }) => /*#__PURE__*/_react.default.createElement("h1", {
+      className: "text-xl text-blue-500 hover:bg-yellow-300"
+    }, /*#__PURE__*/_react.default.createElement("i", null, "This is an Food Ordering app which uses swiggy public api.You can find your favorite restaurants and select your Food."))));
   }
   componentDidUpdate() {
     console.log('component uppdated');
@@ -39176,23 +39178,41 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const Contact = () => {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", {
-    className: "underline font-bold p-4 m-4"
-  }, "Contact Us"), /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    name: "contact",
+    className: "flex bg-gray-500 text-white my-0 mx-9 py-5 justify-center items-center"
+  }, /*#__PURE__*/_react.default.createElement("form", {
+    method: "POST",
+    action: "https://getform.io/f/104da966-6f86-436f-996a-cb660f8056e2",
+    className: "flex flex-col"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-4xl font-bold inline border-b-4 border-pink-600 text-gray-300"
+  }, "Contact US"), /*#__PURE__*/_react.default.createElement("p", {
+    className: "text-gray-300 py-4"
+  }, "Contact us by filling the form below ")), /*#__PURE__*/_react.default.createElement("input", {
+    className: "bg-white p-2 cursor-auto text-blue-700 placeholder:text-white",
     type: "text",
-    className: "bg-cyan-50 p-1 m-2 border-2 w-15",
-    placeholder: "Name"
-  }), /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    className: "bg-cyan-50 p-1 m-2 border-2 w-15",
+    placeholder: "Name",
+    name: "name"
+  }), /*#__PURE__*/_react.default.createElement("input", {
+    className: "my-4 bg-[#7f96e1]  p-2 cursor-auto text-blue-700 placeholder:text-black",
+    type: "email",
+    placeholder: "Email",
+    name: "email"
+  }), /*#__PURE__*/_react.default.createElement("textarea", {
+    className: "bg-[#7f96e1]  p-2 cursor-auto text-blue-700 placeholder:text-black",
+    name: "message",
+    rows: "5",
     placeholder: "Message"
-  }), /*#__PURE__*/React.createElement("button", {
-    className: "bg-gray-300 rounded w-20 p-1 m-2 w-15 border "
-  }, "Submit")));
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    className: "text-white border-2 hover:bg-blue-700 px-4 py-3 my-8 mx-auto flex items-center"
+  }, "Send")));
 };
 var _default = exports.default = Contact;
-},{}],"src/components/Error.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Error.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -43941,7 +43961,7 @@ const dataList = ({
     key: index
   }, /*#__PURE__*/React.createElement("div", {
     "data-testid": "foodItems",
-    className: "p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
+    className: "p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between hover:bg-blue-300"
   }, /*#__PURE__*/React.createElement("div", {
     className: "w-9/12"
   }, /*#__PURE__*/React.createElement("div", {
@@ -43963,9 +43983,10 @@ const dataList = ({
     className: "p-2 mx-6 my-14 rounded-lg bg-white font-bold text-green-700",
     onClick: () => handleRemoveItem(index)
   }, "-")), /*#__PURE__*/React.createElement("div", {
-    className: "mx-auto my-auto right-0 w-32"
+    className: "mx-auto my-auto right-0 w-32 "
   }, /*#__PURE__*/React.createElement("img", {
-    src: _constants.CDN_URL + data.card.info.imageId
+    src: _constants.CDN_URL + data.card.info.imageId,
+    alt: data.card.info.name
   })))))));
 };
 var _default = exports.default = dataList;
@@ -43989,7 +44010,7 @@ const RestaurantCategory = ({
     setShowIndex();
   };
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "w-9/12 mx-auto my-auto bg-slate-50 h-full shadow-lg p-5 flex flex-wrap"
+    className: "w-9/12 mx-auto my-2 bg-slate-50 h-full shadow-lg p-5 flex flex-wrap"
   }, /*#__PURE__*/React.createElement("span", {
     className: "font-bold text-lg"
   }, category.title, "(", category.itemCards.length, ")"), /*#__PURE__*/React.createElement("span", null, " ", /*#__PURE__*/React.createElement("svg", {
@@ -44065,7 +44086,7 @@ const Restaurant = () => {
   }, cuisines && cuisines.join(",") + "-" + price && price), /*#__PURE__*/React.createElement("h3", {
     className: "px-60 pb-2"
   }, areaName, " "), /*#__PURE__*/React.createElement("p", {
-    className: "border-2 w-[5%] mx-auto px-2"
+    className: "border-2 w-[5%] mx-auto my-10 px-2"
   }, avgRating), categories?.map((category, index) =>
   /*#__PURE__*/
   //controlled component
@@ -44311,7 +44332,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54572" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53180" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

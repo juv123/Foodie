@@ -14,12 +14,12 @@ const RestoCard =(props)=>{
           return (
           <div 
           data-testid="searchCard"
-          className="p-5 border-2 m-5 w-72 overflow-hidden h-screen rounded-lg hover:bg-green-300"
+          className="p-5 border-2 m-5 w-72 h-screen rounded-lg hover:bg-red-500 shadow-lg"
           >
-           <img className="w-40 rounded-lg" src={CDN_URL + restaurantImage} />
-         <h3 className="font-bold">{restaurantName}</h3>
+           <img className="w-40 rounded-lg hover-zoom object-cover" src={CDN_URL + restaurantImage} alt={restaurantName} />
+         <h3 className="font-bold break-words overflow-hidden">{restaurantName}</h3>
          <h4 className="text-left">{areaName} {locality}</h4>
-        <h4 className="italic">{cuisine.join(",")}</h4>
+        <h4 className="italic break-words overflow-hidden">{cuisine.join(",")}</h4>
         <h4>Rs.{costForTwo}</h4> 
         <h4 className="font-bold">{starRating} stars</h4>
         <h4>{deliveryTime} minutes</h4>

@@ -40,7 +40,7 @@ const Body =()=>{
      
     //console.log(listofRestaurants);
     return(
-      <div className="body">
+      <div>
       <div className="p-5 w-[80%] flex">
       <label className="p-4">Search:</label>
     <input type="search" data-testid="searchInput" id="site-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:border-y-amber-500 p-5" placeholder="Enter Restaurant name" value={searchText} name="q" onChange={(e)=>searchResturant(e.target.value)}/>
@@ -77,7 +77,7 @@ const Body =()=>{
          
    
   
-      <div className="flex flex-wrap bg-zinc-100 my-auto mx-9 py-2">
+      <div className="flex flex-wrap bg-zinc-100 my-auto mx-9 py-2 justify-center items-center">
     <UserContext.Provider value={user}>
      { onlineStatus?(filteredListofRestuarants?.map((restaurant) => <Link key={restaurant?.info.id}
             to={"/restaurants/" + restaurant?.info.id}> {restaurant.info.promoted===true ? <PromotedComponent key={restaurant?.info.id} resData={restaurant} />:<RestoCard  key={restaurant?.info.id} resData={restaurant} user={user} />}</Link>))

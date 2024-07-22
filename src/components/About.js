@@ -13,10 +13,10 @@ export default class About extends Component {
   render() {
     console.log('parent render');
     return (
-      <div className="bg-white dark:bg-gray-800">
-        <h1 className="dark:text-white underline font-bold">About us</h1>
+      <div className="bg-white dark:bg-gray-800 mt-20 ml-10 mr-8 mb-40">
+        <h1 className="text-4xl dark:text-white underline font-bold p-7">About us</h1>
         <UserContext.Consumer>
-          {({user})=><h1><i>Food App Using Swiggy API</i>{/*user*/}</h1>}
+          {({user})=><h1 className='text-xl text-blue-500 hover:bg-yellow-300'><i>This is an Food Ordering app which uses swiggy public api.You can find your favorite restaurants and select your Food.</i>{/*user*/}</h1>}
                 </UserContext.Consumer>
        
           

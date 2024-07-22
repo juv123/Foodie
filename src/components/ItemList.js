@@ -15,7 +15,7 @@ const dataList=({data}) =>{
         <div>
        {data.map((data,index)=>(
          <ul key={index}>
-        <div data-testid="foodItems" className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between">
+        <div data-testid="foodItems" className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between hover:bg-blue-300">
         <div className="w-9/12">
             <div className="py-2">
             <li className="font-bold text-center">{data.card.info.name}</li>
@@ -40,8 +40,8 @@ const dataList=({data}) =>{
               </button>
             </div>
           
-            <div className="mx-auto my-auto right-0 w-32">
-            <img src={CDN_URL+data.card.info.imageId} />
+            <div className="mx-auto my-auto right-0 w-32 ">
+            <img src={CDN_URL+data.card.info.imageId}  alt={data.card.info.name} />
             </div>
            
         

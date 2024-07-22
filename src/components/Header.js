@@ -22,7 +22,7 @@ const Header=()=>{
     return (
         <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-sky-500/50 mb-10">
        <div className="logoContainer">
-        <img className="w-20 h-10" src={LOGO_URL}/><h3 className="foodie"><b><i>Foodie</i></b></h3>
+        <img className="w-20 h-10" alt="logo" src={LOGO_URL}/><h3 className="foodie"><b><i>Foodie</i></b></h3>
     </div>
     <div className="nav-items">
         <ul className="flex p-4 m-4">

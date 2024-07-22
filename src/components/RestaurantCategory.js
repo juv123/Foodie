@@ -8,7 +8,7 @@ const RestaurantCategory=({category, toggle, setShowIndex})=>  {
  };
   return <div>
     {/* Accordion header*/}
-    <div className="w-9/12 mx-auto my-auto bg-slate-50 h-full shadow-lg p-5 flex flex-wrap">
+    <div className="w-9/12 mx-auto my-2 bg-slate-50 h-full shadow-lg p-5 flex flex-wrap">
           <span className="font-bold text-lg">{category.title}({category.itemCards.length})</span>
          
                   <span> <svg

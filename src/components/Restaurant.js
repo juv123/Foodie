@@ -31,7 +31,7 @@ const [showIndex,setShowIndex]=useState(null);
        <h2 className="font-semibold text-xl px-60 pb-2">{name}</h2>
         <h3 className="italic px-60 pb-2">{cuisines && cuisines.join(",") +"-"+ price && price}</h3>
         <h3 className="px-60 pb-2">{areaName} </h3>
-        <p className="border-2 w-[5%] mx-auto px-2">{avgRating}</p>
+        <p className="border-2 w-[5%] mx-auto my-10 px-2">{avgRating}</p>
              
             {categories?.map((category,index) => 
             //controlled component

@@ -125,7 +125,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 const Grocery = () => {
-  return /*#__PURE__*/React.createElement("h1", null, "My Grocery");
+  return /*#__PURE__*/React.createElement("h1", {
+    className: "text-4xl text-green-700 font-bold p-7"
+  }, "My Grocery uses Lazy Loading Feature");
 };
 var _default = exports.default = Grocery;
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -153,7 +155,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54572" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53180" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
