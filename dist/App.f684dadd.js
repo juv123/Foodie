@@ -39178,38 +39178,102 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireWildcard(require("react"));
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 const Contact = () => {
+  const [formData, setFormData] = (0, _react.useState)({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = (0, _react.useState)({
+    success: false,
+    error: false,
+    message: ''
+  });
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    // Basic client-side validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus({
+        success: false,
+        error: true,
+        message: 'All fields are required.'
+      });
+      return;
+    }
+    fetch('https://getform.io/f/104da966-6f86-436f-996a-cb660f8056e2', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    }).then(response => response.json()).then(data => {
+      setFormStatus({
+        success: true,
+        error: false,
+        message: 'Thank you for your message! I will get back to you soon.'
+      });
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      }); // Clear form fields
+    }).catch(error => {
+      setFormStatus({
+        success: false,
+        error: true,
+        message: 'There was an error submitting your message. Please try again later.'
+      });
+    });
+  };
   return /*#__PURE__*/_react.default.createElement("div", {
     name: "contact",
-    className: "flex bg-gray-500 text-white my-0 mx-9 py-5 justify-center items-center"
+    className: "w-full h-screen bg-[#0a192f] flex justify-center items-center p-4"
   }, /*#__PURE__*/_react.default.createElement("form", {
-    method: "POST",
-    action: "https://getform.io/f/104da966-6f86-436f-996a-cb660f8056e2",
-    className: "flex flex-col"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", {
+    onSubmit: handleSubmit,
+    className: "flex flex-col max-w-[600px] w-full space-y-4"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "pb-8 text-center"
+  }, /*#__PURE__*/_react.default.createElement("p", {
     className: "text-4xl font-bold inline border-b-4 border-pink-600 text-gray-300"
-  }, "Contact US"), /*#__PURE__*/_react.default.createElement("p", {
+  }, "Contact"), /*#__PURE__*/_react.default.createElement("p", {
     className: "text-gray-300 py-4"
-  }, "Contact us by filling the form below ")), /*#__PURE__*/_react.default.createElement("input", {
-    className: "bg-white p-2 cursor-auto text-blue-700 placeholder:text-white",
+  }, "Submit the form below or shoot me an email - deegaaug@gmail.com")), /*#__PURE__*/_react.default.createElement("input", {
+    className: "bg-[#7f96e1] p-2 text-white placeholder:text-white rounded-md",
     type: "text",
     placeholder: "Name",
-    name: "name"
+    name: "name",
+    value: formData.name,
+    onChange: handleChange
   }), /*#__PURE__*/_react.default.createElement("input", {
-    className: "my-4 bg-[#7f96e1]  p-2 cursor-auto text-blue-700 placeholder:text-black",
+    className: "bg-[#7f96e1] p-2 text-white placeholder:text-white rounded-md",
     type: "email",
     placeholder: "Email",
-    name: "email"
+    name: "email",
+    value: formData.email,
+    onChange: handleChange
   }), /*#__PURE__*/_react.default.createElement("textarea", {
-    className: "bg-[#7f96e1]  p-2 cursor-auto text-blue-700 placeholder:text-black",
+    className: "bg-[#7f96e1] p-2 text-white placeholder:text-white rounded-md",
     name: "message",
-    rows: "5",
-    placeholder: "Message"
+    rows: "10",
+    placeholder: "Message",
+    value: formData.message,
+    onChange: handleChange
   }), /*#__PURE__*/_react.default.createElement("button", {
-    className: "text-white border-2 hover:bg-blue-700 px-4 py-3 my-8 mx-auto flex items-center"
-  }, "Send")));
+    type: "submit",
+    className: "text-white border-2 hover:bg-blue-700 hover:border-blue-700 px-4 py-3 rounded-md mx-auto flex items-center transition-colors duration-300"
+  }, "Let's Collaborate"), formStatus.message && /*#__PURE__*/_react.default.createElement("p", {
+    className: `mt-4 text-center ${formStatus.success ? 'text-green-500' : 'text-red-500'}`
+  }, formStatus.message)));
 };
 var _default = exports.default = Contact;
 },{"react":"node_modules/react/index.js"}],"src/components/Error.js":[function(require,module,exports) {
@@ -44332,7 +44396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53180" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49900" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
