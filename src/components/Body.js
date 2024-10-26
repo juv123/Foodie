@@ -59,7 +59,7 @@ const Body =()=>{
     </div>
     <div className="flex items-center justify-center">
     <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm  py-2.5 text-center w-60 mb-5" onClick={()=>{ 
-      const filteredList=listofRestaurants?.filter((res)=> res.info.avgRating > 4.1
+      const filteredList=listofRestaurants?.filter((res)=> res.info.avgRating > 4.5
     );
    // console.log(filteredList);
     setFilteredList(filteredList);

@@ -39070,7 +39070,7 @@ const Body = () => {
     type: "button",
     className: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm  py-2.5 text-center w-60 mb-5",
     onClick: () => {
-      const filteredList = listofRestaurants?.filter(res => res.info.avgRating > 4.1);
+      const filteredList = listofRestaurants?.filter(res => res.info.avgRating > 4.5);
       // console.log(filteredList);
       setFilteredList(filteredList);
     }
@@ -44396,7 +44396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49900" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64122" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
