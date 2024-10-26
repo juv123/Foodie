@@ -9,3 +9,10 @@ display:none;
     -ms-overflow-style:none;
     scrollbar-width:none;
 }
+@media (max-width: 768px) {
+    .restocard {
+        /* Adjust any necessary styles for mobile view */
+        display: block;
+        /* Optional styling to ensure visibility */
+    }
+}
