@@ -110,7 +110,7 @@
   "start": "react-scripts start",
   
     
-  "build": "parcel build index.html",
+  "build": "parcel build index.html --dist-dir build",
   
     
   "test": "react-scripts test",
