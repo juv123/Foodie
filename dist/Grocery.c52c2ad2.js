@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"K1LE0":[function(require,module,exports) {
+})({"97dvP":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -583,9 +583,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"6xqhW":[function(require,module,exports) {
-var Refresh = require("a3fe4a128c264c47");
-var ErrorOverlay = require("d1dae92729e2f6ce");
+},{}],"1xC6H":[function(require,module,exports) {
+var Refresh = require("6d18d6bd340e7473");
+var ErrorOverlay = require("74ad5ea14201648c");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -604,22 +604,36 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"a3fe4a128c264c47":"afmxj","d1dae92729e2f6ce":"30MIq"}],"2CCQ0":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = void 0;
+},{"6d18d6bd340e7473":"786KC","74ad5ea14201648c":"1dldy"}],"2CCQ0":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3b38 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3b38.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const Grocery = ()=>{
-    return /*#__PURE__*/ React.createElement("h1", {
-        className: "text-4xl text-green-700 font-bold p-7"
-    }, "My Grocery uses Lazy Loading Feature");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+        className: "text-4xl text-green-700 font-bold p-7",
+        children: "My Grocery uses Lazy Loading Feature"
+    }, void 0, false, {
+        fileName: "src/components/Grocery.js",
+        lineNumber: 2,
+        columnNumber: 11
+    }, undefined);
 };
 _c = Grocery;
-var _default = exports.default = Grocery;
+exports.default = Grocery;
 var _c;
 $RefreshReg$(_c, "Grocery");
 
-},{}]},["K1LE0","6xqhW"], null, "parcelRequirea9e5")
+  $parcel$ReactRefreshHelpers$3b38.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["97dvP","1xC6H"], null, "parcelRequirea9e5")
 
 //# sourceMappingURL=Grocery.c52c2ad2.js.map

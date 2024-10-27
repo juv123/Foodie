@@ -23,11 +23,23 @@ const Body =()=>{
     },[]);
     //console.log('component rendered');//after component rendered only the use effect call back function called.
     const fetchData = async ()=>{
+      try{
+
+     
      const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-     const json=await data.json();
-       
+     
+        if (!data.ok) {
+          throw new Error('Network response was not ok');
+         }
+       const json=await data.json();
+       console.log(json);
      setRestaurantList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+     console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
      setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }catch(error){
+      console.log(error)
+
+    }
       //console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
            
     }
@@ -77,10 +89,10 @@ const Body =()=>{
          
    
   
-      <div className="flex flex-wrap bg-zinc-100 my-auto mx-9 py-2 justify-center items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-9 py-2 justify-center items-start">
     <UserContext.Provider value={user}>
      { onlineStatus?(filteredListofRestuarants?.map((restaurant) => <Link key={restaurant?.info.id}
-            to={"/restaurants/" + restaurant?.info.id}> {restaurant.info.promoted===true ? <PromotedComponent key={restaurant?.info.id} resData={restaurant} />:<RestoCard  key={restaurant?.info.id} resData={restaurant} user={user} />}</Link>))
+            to={"/restaurants/" + restaurant?.info.id}> {restaurant?.info?.promoted===true ? <PromotedComponent key={restaurant?.info.id} resData={restaurant} />:<RestoCard  key={restaurant?.info?.id} resData={restaurant} user={user} />}</Link>))
             :<h1>Looks Like you are Offline!</h1>
  
           
