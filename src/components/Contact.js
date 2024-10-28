@@ -13,6 +13,8 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -20,8 +22,13 @@ const Contact = () => {
     });
   };
 
+  const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Prevent multiple submissions
+    if (isSubmitting) return;
 
     // Basic client-side validation
     if (!formData.name || !formData.email || !formData.message) {
@@ -32,6 +39,17 @@ const Contact = () => {
       });
       return;
     }
+
+    if (!isEmailValid(formData.email)) {
+      setFormStatus({
+        success: false,
+        error: true,
+        message: 'Please enter a valid email address.'
+      });
+      return;
+    }
+
+    setIsSubmitting(true); // Disable button during submission
 
     fetch('https://getform.io/f/104da966-6f86-436f-996a-cb660f8056e2', {
       method: 'POST',
@@ -55,7 +73,8 @@ const Contact = () => {
           error: true,
           message: 'There was an error submitting your message. Please try again later.'
         });
-      });
+      })
+      .finally(() => setIsSubmitting(false)); // Re-enable button after response
   };
 
   return (
@@ -97,11 +116,17 @@ const Contact = () => {
         ></textarea>
         <button 
           type='submit'
-          className='text-white border-2 hover:bg-blue-700 hover:border-blue-700 px-4 py-3 rounded-md mx-auto flex items-center transition-colors duration-300'>
+          className={`text-white border-2 hover:bg-blue-700 hover:border-blue-700 px-4 py-3 rounded-md mx-auto flex items-center transition-colors duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={isSubmitting}
+        >
           Let's Collaborate
         </button>
         {formStatus.message && (
-          <p className={`mt-4 text-center ${formStatus.success ? 'text-green-500' : 'text-red-500'}`}>
+          <p 
+            role="status" 
+            aria-live="polite"
+            className={`mt-4 text-center ${formStatus.success ? 'text-green-500' : 'text-red-500'}`}
+          >
             {formStatus.message}
           </p>
         )}
