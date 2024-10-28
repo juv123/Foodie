@@ -37070,10 +37070,11 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _framerMotion = require("framer-motion");
 const RestoCard = ({ resData })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "border p-4 rounded-lg shadow-md h-full flex flex-col bg-gray-300 hover:bg-red-600 ",
+        className: "border p-4 rounded-lg shadow-md h-full flex flex-col bg-gray-300 hover:bg-red-600 transition duration-300 ease-in-out",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _framerMotion.motion).img, {
-                className: "object-cover w-full h-48",
+                className: "object-cover w-full h-48 md:h-60 lg:h-72" // Adjust height for different screen sizes
+                ,
                 src: (0, _constants.CDN_URL) + resData?.info.cloudinaryImageId,
                 alt: resData.info.name,
                 whileHover: {
@@ -37087,58 +37088,58 @@ const RestoCard = ({ resData })=>{
             }, void 0, false, {
                 fileName: "src/components/RestoCard.js",
                 lineNumber: 9,
-                columnNumber: 11
+                columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "p-4 flex flex-col flex-grow",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        className: "text-lg truncate font-black",
+                        className: "text-lg md:text-xl lg:text-2xl truncate font-black",
                         children: resData?.info.name
                     }, void 0, false, {
                         fileName: "src/components/RestoCard.js",
-                        lineNumber: 12,
-                        columnNumber: 15
+                        lineNumber: 17,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-lg text-white truncate font-bold italic",
+                        className: "text-sm md:text-lg text-white truncate font-bold italic",
                         children: Array.isArray(resData?.info.cuisines) && resData?.info.cuisines.length > 0 ? resData.info.cuisines.join(", ") : "No cuisine available"
                     }, void 0, false, {
                         fileName: "src/components/RestoCard.js",
-                        lineNumber: 13,
-                        columnNumber: 15
+                        lineNumber: 18,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-lg text-white",
+                        className: "text-sm md:text-lg text-white",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "w-6",
+                                className: "w-5 md:w-6",
                                 src: (0, _constants.RATING_STAR),
                                 alt: "rating"
                             }, void 0, false, {
                                 fileName: "src/components/RestoCard.js",
-                                lineNumber: 18,
-                                columnNumber: 49
+                                lineNumber: 24,
+                                columnNumber: 13
                             }, undefined),
                             " ",
                             resData?.info.avgRating
                         ]
                     }, void 0, true, {
                         fileName: "src/components/RestoCard.js",
-                        lineNumber: 18,
-                        columnNumber: 15
+                        lineNumber: 23,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/RestoCard.js",
-                lineNumber: 11,
-                columnNumber: 11
+                lineNumber: 16,
+                columnNumber: 5
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestoCard.js",
         lineNumber: 8,
-        columnNumber: 7
+        columnNumber: 5
     }, undefined);
 };
 _c = RestoCard;
@@ -37152,14 +37153,14 @@ const Recommended = (RestoCard)=>{
                     children: "Recommended"
                 }, void 0, false, {
                     fileName: "src/components/RestoCard.js",
-                    lineNumber: 33,
+                    lineNumber: 41,
                     columnNumber: 1
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestoCard, {
                     ...props
                 }, void 0, false, {
                     fileName: "src/components/RestoCard.js",
-                    lineNumber: 34,
+                    lineNumber: 42,
                     columnNumber: 1
                 }, undefined)
             ]
@@ -37176,14 +37177,14 @@ const Promoted = (RestoCard)=>{
                     children: "Promoted"
                 }, void 0, false, {
                     fileName: "src/components/RestoCard.js",
-                    lineNumber: 47,
+                    lineNumber: 55,
                     columnNumber: 1
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestoCard, {
                     ...props
                 }, void 0, false, {
                     fileName: "src/components/RestoCard.js",
-                    lineNumber: 48,
+                    lineNumber: 56,
                     columnNumber: 1
                 }, undefined)
             ]
@@ -48657,14 +48658,18 @@ const Contact = ()=>{
         error: false,
         message: ""
     });
+    const [isSubmitting, setIsSubmitting] = (0, _react.useState)(false);
     const handleChange = (e)=>{
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     };
+    const isEmailValid = (email)=>/\S+@\S+\.\S+/.test(email);
     const handleSubmit = (e)=>{
         e.preventDefault();
+        // Prevent multiple submissions
+        if (isSubmitting) return;
         // Basic client-side validation
         if (!formData.name || !formData.email || !formData.message) {
             setFormStatus({
@@ -48674,6 +48679,15 @@ const Contact = ()=>{
             });
             return;
         }
+        if (!isEmailValid(formData.email)) {
+            setFormStatus({
+                success: false,
+                error: true,
+                message: "Please enter a valid email address."
+            });
+            return;
+        }
+        setIsSubmitting(true); // Disable button during submission
         fetch("https://getform.io/f/104da966-6f86-436f-996a-cb660f8056e2", {
             method: "POST",
             headers: {
@@ -48697,7 +48711,7 @@ const Contact = ()=>{
                 error: true,
                 message: "There was an error submitting your message. Please try again later."
             });
-        });
+        }).finally(()=>setIsSubmitting(false)); // Re-enable button after response
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         name: "contact",
@@ -48714,7 +48728,7 @@ const Contact = ()=>{
                             children: "Contact"
                         }, void 0, false, {
                             fileName: "src/components/Contact.js",
-                            lineNumber: 67,
+                            lineNumber: 86,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -48722,13 +48736,13 @@ const Contact = ()=>{
                             children: "Submit the form below or shoot me an email - deegaaug@gmail.com"
                         }, void 0, false, {
                             fileName: "src/components/Contact.js",
-                            lineNumber: 70,
+                            lineNumber: 89,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Contact.js",
-                    lineNumber: 66,
+                    lineNumber: 85,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -48740,7 +48754,7 @@ const Contact = ()=>{
                     onChange: handleChange
                 }, void 0, false, {
                     fileName: "src/components/Contact.js",
-                    lineNumber: 74,
+                    lineNumber: 93,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -48752,7 +48766,7 @@ const Contact = ()=>{
                     onChange: handleChange
                 }, void 0, false, {
                     fileName: "src/components/Contact.js",
-                    lineNumber: 82,
+                    lineNumber: 101,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -48764,39 +48778,42 @@ const Contact = ()=>{
                     onChange: handleChange
                 }, void 0, false, {
                     fileName: "src/components/Contact.js",
-                    lineNumber: 90,
+                    lineNumber: 109,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     type: "submit",
-                    className: "text-white border-2 hover:bg-blue-700 hover:border-blue-700 px-4 py-3 rounded-md mx-auto flex items-center transition-colors duration-300",
+                    className: `text-white border-2 hover:bg-blue-700 hover:border-blue-700 px-4 py-3 rounded-md mx-auto flex items-center transition-colors duration-300 ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`,
+                    disabled: isSubmitting,
                     children: "Let's Collaborate"
                 }, void 0, false, {
                     fileName: "src/components/Contact.js",
-                    lineNumber: 98,
+                    lineNumber: 117,
                     columnNumber: 9
                 }, undefined),
                 formStatus.message && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    role: "status",
+                    "aria-live": "polite",
                     className: `mt-4 text-center ${formStatus.success ? "text-green-500" : "text-red-500"}`,
                     children: formStatus.message
                 }, void 0, false, {
                     fileName: "src/components/Contact.js",
-                    lineNumber: 104,
+                    lineNumber: 125,
                     columnNumber: 11
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/Contact.js",
-            lineNumber: 63,
+            lineNumber: 82,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Contact.js",
-        lineNumber: 62,
+        lineNumber: 81,
         columnNumber: 5
     }, undefined);
 };
-_s(Contact, "Q3X+2PqloADpICAHAzC3ZN/78/E=");
+_s(Contact, "ajZEt1nlwM9OHYh8rRF88KSV+H0=");
 _c = Contact;
 exports.default = Contact;
 var _c;
