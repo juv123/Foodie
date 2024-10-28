@@ -36985,38 +36985,36 @@ const Body = ()=>{
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-9 py-2 justify-center items-start",
+                className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 md:mx-9 py-2 justify-center items-start",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userContextsDefault.default).Provider, {
                     value: user,
                     children: onlineStatus ? filteredListofRestuarants?.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: "/restaurants/" + restaurant?.info.id,
-                            children: [
-                                " ",
-                                restaurant?.info?.promoted === true ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PromotedComponent, {
-                                    resData: restaurant
-                                }, restaurant?.info.id, false, {
-                                    fileName: "src/components/Body.js",
-                                    lineNumber: 95,
-                                    columnNumber: 94
-                                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restoCardDefault.default), {
-                                    resData: restaurant,
-                                    user: user
-                                }, restaurant?.info?.id, false, {
-                                    fileName: "src/components/Body.js",
-                                    lineNumber: 95,
-                                    columnNumber: 163
-                                }, undefined)
-                            ]
-                        }, restaurant?.info.id, true, {
+                            children: restaurant?.info?.promoted === true ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PromotedComponent, {
+                                resData: restaurant
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 98,
+                                columnNumber: 25
+                            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restoCardDefault.default), {
+                                resData: restaurant,
+                                user: user
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 100,
+                                columnNumber: 25
+                            }, undefined)
+                        }, restaurant?.info.id, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 94,
-                            columnNumber: 69
+                            lineNumber: 96,
+                            columnNumber: 17
                         }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: "Looks Like you are Offline!"
+                        className: "text-center text-red-600",
+                        children: "Looks like you are Offline!"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 96,
-                        columnNumber: 14
+                        lineNumber: 105,
+                        columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
@@ -37026,7 +37024,7 @@ const Body = ()=>{
             }, void 0, false, {
                 fileName: "src/components/Body.js",
                 lineNumber: 92,
-                columnNumber: 7
+                columnNumber: 3
             }, undefined)
         ]
     }, void 0, true, {

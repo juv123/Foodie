@@ -89,17 +89,24 @@ const Body =()=>{
          
    
   
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-9 py-2 justify-center items-start">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 md:mx-9 py-2 justify-center items-start">
     <UserContext.Provider value={user}>
-     { onlineStatus?(filteredListofRestuarants?.map((restaurant) => <Link key={restaurant?.info.id}
-            to={"/restaurants/" + restaurant?.info.id}> {restaurant?.info?.promoted===true ? <PromotedComponent key={restaurant?.info.id} resData={restaurant} />:<RestoCard  key={restaurant?.info?.id} resData={restaurant} user={user} />}</Link>))
-            :<h1>Looks Like you are Offline!</h1>
- 
-          
-         
-      }
-      </UserContext.Provider>
-               </div>
+        {onlineStatus ? (
+            filteredListofRestuarants?.map((restaurant) => (
+                <Link key={restaurant?.info.id} to={"/restaurants/" + restaurant?.info.id}>
+                    {restaurant?.info?.promoted === true ? (
+                        <PromotedComponent resData={restaurant} />
+                    ) : (
+                        <RestoCard resData={restaurant} user={user} />
+                    )}
+                </Link>
+            ))
+        ) : (
+            <h1 className="text-center text-red-600">Looks like you are Offline!</h1>
+        )}
+    </UserContext.Provider>
+</div>
+
        
 
         

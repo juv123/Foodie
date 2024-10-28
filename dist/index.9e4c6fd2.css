@@ -280,9 +280,9 @@ img, video {
   margin: 1.25rem;
 }
 
-.mx-9 {
-  margin-left: 2.25rem;
-  margin-right: 2.25rem;
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mx-auto {
@@ -826,6 +826,11 @@ img, video {
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -996,6 +1001,11 @@ img, video {
 }
 
 @media (width >= 768px) {
+  .md\:mx-9 {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+
   .md\:h-60 {
     height: 15rem;
   }
